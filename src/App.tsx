@@ -1,5 +1,5 @@
 function App() {
-	return <div>Another-Chat</div>;
+	return <div>Hello Chat</div>;
 }
 
 export default App;
