@@ -1,12 +1,12 @@
-import { BrowserRouter, Routes, Route } from "react-router";
-import Welcome from "../../pages/welcome";
+import { BrowserRouter, Routes, Route } from 'react-router';
+import HomePage from '@pages/home';
 
 export default function Router() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Welcome />} />
-      </Routes>
-    </BrowserRouter>
-  );
+	return (
+		<BrowserRouter>
+			<Routes>
+				<Route path="/" element={<HomePage />} />
+			</Routes>
+		</BrowserRouter>
+	);
 }
