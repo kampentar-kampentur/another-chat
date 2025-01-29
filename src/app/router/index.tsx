@@ -1,14 +1,20 @@
-import { BrowserRouter, Routes, Route } from 'react-router';
-import WelcomePage from '@pages/welcome';
-import ChatPage from '@pages/chat';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router';
+import { WelcomePage } from '@pages/welcome';
+import { ChatPage } from '@pages/chat';
+import { BaseLayout } from '@widgets/BaseLayout/ui/BaseLayout';
 
-export default function Router() {
+const Router = () => {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/" element={<WelcomePage />} />
-				<Route path="/chat/*" element={<ChatPage />} />
+				<Route element={<BaseLayout />}>
+					<Route path="/welcome" element={<WelcomePage />} />
+					<Route path="/chat/*" element={<ChatPage />} />
+					<Route path="*" element={<Navigate to="/welcome" replace />} />
+				</Route>
 			</Routes>
 		</BrowserRouter>
 	);
-}
+};
+
+export default Router;
