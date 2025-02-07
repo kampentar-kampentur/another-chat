@@ -29,6 +29,7 @@
 			"@entities/*": ["entities/*"],
 			"@features/*": ["features/*"],
 			"@widgets/*": ["widgets/*"],
+			"@layouts/*": ["layouts/*"],
 			"@pages/*": ["pages/*"],
 			"@app/*": ["app/*"]
 		}
