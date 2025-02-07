@@ -1,13 +1,7 @@
-import { FC, ReactNode, useState } from 'react';
+import { useState } from 'react';
 import { SidebarContext } from './ContextSidebar';
 
-interface SidebarContextProviderProps {
-	children: ReactNode;
-}
-
-export const SidebarContextProvider: FC<SidebarContextProviderProps> = ({
-	children,
-}) => {
+export const SidebarContextProvider = ({ children }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const toggleSidebar = () => setIsOpen((prev) => !prev);

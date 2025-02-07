@@ -3,20 +3,13 @@ import globals from 'globals';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import prettierPlugin from 'eslint-plugin-prettier';
-import prettierConfig from 'eslint-config-prettier';
-import tseslint from 'typescript-eslint';
 
-export default tseslint.config(
-	{ ignores: ['dist'] },
+export default [
 	{
-		extends: [
-			js.configs.recommended,
-			...tseslint.configs.recommended,
-			prettierConfig,
-		],
-		files: ['**/*.{ts,tsx}'],
+		ignores: ['dist'],
 		languageOptions: {
 			ecmaVersion: 2020,
+			sourceType: 'module',
 			globals: globals.browser,
 		},
 		plugins: {
@@ -25,6 +18,7 @@ export default tseslint.config(
 			prettier: prettierPlugin,
 		},
 		rules: {
+			...js.configs.recommended.rules,
 			...reactHooks.configs.recommended.rules,
 			'react-refresh/only-export-components': [
 				'warn',
@@ -32,5 +26,5 @@ export default tseslint.config(
 			],
 			'prettier/prettier': 'error',
 		},
-	}
-);
+	},
+];
